@@ -1,248 +1,183 @@
-<h1>🧪 benefits-dashboard-ui-automation-playwright</h1>
+# 🧪 benefits-dashboard-ui-automation-playwright
 
-<h2>📌 Overview</h2>
+## 📌 Overview
 
-<p>
 Automated UI testing framework built to validate the Employees & Benefits Dashboard application.
-</p>
 
-<p>
-This project demonstrates end-to-end UI automation using Playwright, validating CRUD workflows,
-financial calculations, and overall system behavior through deterministic CLI execution.
-</p>
+This project demonstrates end-to-end UI automation using Playwright, validating CRUD workflows, financial calculations, and overall system behavior through deterministic CLI execution.
 
-<p>This automation framework includes:</p>
+This automation framework includes:
 
-<ul>
-  <li>Playwright Test</li>
-  <li>Page Object Model (POM) architecture</li>
-  <li>Session reuse via storageState</li>
-  <li>HTML reporting</li>
-  <li>Automatic screenshot & video evidence</li>
-  <li>Business rule validation at UI level</li>
-  <li>Full CRUD workflow validation</li>
-</ul>
+- Playwright Test  
+- Page Object Model (POM) architecture  
+- Session reuse via storageState  
+- HTML reporting  
+- Screenshot & video evidence capture  
+- Business rule validation at UI level  
+- Full CRUD workflow validation  
 
-<hr>
+---
 
-<h2>🎯 Objective</h2>
+## 🎯 Objective
 
-<p>Validate employer ability to:</p>
+Validate employer ability to:
 
-<ul>
-  <li>Add employees</li>
-  <li>Calculate benefit costs correctly</li>
-  <li>Edit employee data</li>
-  <li>Delete employees</li>
-  <li>Maintain UI data consistency</li>
-</ul>
+- Add employees  
+- Calculate benefit costs correctly  
+- Edit employee data  
+- Delete employees  
+- Maintain UI data consistency  
 
-<p>
 All tests are designed to be reproducible via CLI execution and suitable for CI/CD pipelines.
-</p>
 
-<hr>
+---
 
-<h2>🏗 Architecture & Test Design Principles</h2>
+## 🏗 Architecture & Test Design Principles
 
-<ul>
-  <li>Page Object Model structure</li>
-  <li>Deterministic test execution</li>
-  <li>Dynamic ID capture from UI</li>
-  <li>No hardcoded identifiers</li>
-  <li>Reusable authenticated session</li>
-  <li>Self-cleaning test behavior</li>
-  <li>Evidence-driven reporting</li>
-  <li>Controlled handling of demo environment instability</li>
-</ul>
+The automation suite follows:
 
-<hr>
+- Page Object Model structure  
+- Deterministic test execution  
+- Dynamic ID capture from UI  
+- No hardcoded identifiers  
+- Reusable authenticated session  
+- Self-cleaning test behavior  
+- Evidence-driven reporting  
+- Controlled handling of demo environment instability  
 
-<h2>🔁 Execution Flow</h2>
+---
 
-<ol>
-  <li>Login Setup – Save authenticated session</li>
-  <li>Create Employee – Validate UI persistence</li>
-  <li>Edit Employee – Validate update behavior</li>
-  <li>Delete Employee – Validate row removal</li>
-  <li>Benefits Calculation Validation – Validate financial logic</li>
-</ol>
+## 🔁 Execution Flow
 
-<p>
+The Playwright execution sequence is:
+
+1. Login Setup – Save authenticated session  
+2. Create Employee – Validate UI persistence  
+3. Edit Employee – Validate update behavior  
+4. Delete Employee – Validate row removal  
+5. Benefits Calculation Validation – Validate financial logic  
+
 Each test independently validates a complete UI workflow while maintaining system stability.
-</p>
 
-<hr>
+---
 
-<h2>💰 Business Rules Assumptions</h2>
+## 💰 Business Rules Assumptions
 
-<ul>
-  <li>Employee Gross Pay = $2000 per paycheck</li>
-  <li>26 paychecks per year</li>
-  <li>Annual Employee Benefit Cost = $1000</li>
-  <li>Dependent Cost = $500 per dependent</li>
-</ul>
+Financial model validated at UI level:
 
-<h3>Calculation Model</h3>
+- Employee Gross Pay = $2000 per paycheck  
+- 26 paychecks per year  
+- Annual Employee Benefit Cost = $1000  
+- Dependent Cost = $500 per dependent  
 
-<pre>
-Yearly Benefits = 1000 + (Dependents × 500)
-Benefits per Paycheck = Yearly Benefits ÷ 26
-Net Paycheck = 2000 − Benefits per Paycheck
-</pre>
+### Calculation Model
 
-<p>Assertions validate:</p>
+Yearly Benefits = 1000 + (Dependents × 500)  
+Benefits per Paycheck = Yearly Benefits ÷ 26  
+Net Paycheck = 2000 − Benefits per Paycheck  
 
-<ul>
-  <li>Gross value correctness</li>
-  <li>Benefit calculation accuracy</li>
-  <li>Net &lt; Gross validation</li>
-  <li>Non-negative benefit values</li>
-  <li>2-decimal precision consistency</li>
-</ul>
+Assertions validate:
 
-<hr>
+- Gross value correctness  
+- Benefit calculation accuracy  
+- Net < Gross validation  
+- Non-negative benefit values  
+- 2-decimal precision consistency  
 
-<h2>🧪 Test Coverage Scenarios</h2>
+---
 
-<h3>✅ Add Employee</h3>
-<ul>
-  <li>Modal interaction validation</li>
-  <li>Dynamic ID extraction</li>
-  <li>UI table verification</li>
-  <li>Automatic cleanup</li>
-</ul>
+## 🧪 Test Coverage Scenarios
 
-<h3>✅ Edit Employee</h3>
-<ul>
-  <li>Form update validation</li>
-  <li>UI persistence confirmation</li>
-  <li>Table refresh verification</li>
-</ul>
+### ✅ Add Employee
 
-<h3>✅ Delete Employee</h3>
-<ul>
-  <li>Delete confirmation modal validation</li>
-  <li>Row removal verification</li>
-  <li>Negative scenario validation</li>
-</ul>
+- Modal interaction validation  
+- Dynamic ID extraction  
+- UI table verification  
+- Automatic cleanup  
 
-<h3>✅ Benefits Calculation Validation</h3>
-<ul>
-  <li>Gross paycheck verification</li>
-  <li>Benefits cost validation</li>
-  <li>Net paycheck validation</li>
-  <li>Financial rule consistency</li>
-</ul>
+---
 
-<hr>
+### ✅ Edit Employee
 
-<h2>⚠️ Demo Stability Handling</h2>
+- Form update validation  
+- UI persistence confirmation  
+- Table refresh verification  
+- Cleanup execution  
 
-<p>
+---
+
+### ✅ Delete Employee
+
+- Delete confirmation modal validation  
+- Row removal verification  
+- Negative scenario validation  
+
+---
+
+### ✅ Benefits Calculation Validation
+
+- Gross paycheck verification  
+- Benefits cost validation  
+- Net paycheck validation  
+- Financial rule consistency  
+
+---
+
+## ⚠️ Demo Stability Handling
+
 The demo application may occasionally fail to load employee data.
-</p>
 
-<p>The framework includes protective validation logic:</p>
+The framework includes protective validation logic:
 
-<ul>
-  <li>Application health check before executing UI actions</li>
-  <li>Automatic test skip when employee table fails to load</li>
-  <li>Screenshot evidence attachment</li>
-  <li>JSON diagnostic logging</li>
-  <li>Clear separation between system defect and automation failure</li>
-</ul>
+- Application health check before executing UI actions  
+- Automatic test skip when employee table fails to load  
+- Screenshot evidence attachment  
+- JSON diagnostic logging  
+- Clear separation between system defect and automation failure  
 
-<hr>
+---
 
-<h2>🔍 Technical Validation Strategies</h2>
+## 🔍 Technical Validation Strategies
 
-<ul>
-  <li>storageState session reuse</li>
-  <li>Dynamic timestamp-based test data</li>
-  <li>No hardcoded employee IDs</li>
-  <li>UI-based business rule validation</li>
-  <li>HTML report generation</li>
-  <li>Automatic screenshot capture on failure</li>
-  <li>Video recording on failure</li>
-</ul>
+- storageState session reuse  
+- Dynamic timestamp-based test data  
+- No hardcoded employee IDs  
+- UI-based business rule validation  
+- HTML report generation  
+- Automatic screenshot capture on failure  
+- Video retention on failure  
+- Trace collection on failure/retry for debugging  
 
-<hr>
+---
 
-<h2>🛠 Technology Stack</h2>
+## 🛠 Technology Stack
 
-<ul>
-  <li>Playwright Test</li>
-  <li>Node.js</li>
-  <li>Playwright HTML Reporter</li>
-</ul>
+- Playwright Test  
+- Node.js  
+- Playwright HTML Reporter  
 
-<hr>
+---
 
-<h2>⚙️ Installation and Execution</h2>
+## 📁 Project Structure
 
-<h3>Install Dependencies</h3>
-
-<pre><code>npm install</code></pre>
-
-<h3>Install Playwright Browsers</h3>
-
-<pre><code>npx playwright install</code></pre>
-
-<hr>
-
-<h2>🔐 Environment Configuration</h2>
-
-<p>Create a <code>.env</code> file based on <code>.env.example</code>.</p>
-
-<p><strong>Important:</strong> BASE_URL must include a trailing slash.</p>
-
-<pre>
-BASE_URL=https://wmxrwq14uc.execute-api.us-east-1.amazonaws.com/Prod/
-UI_USERNAME=YourUsername
-UI_PASSWORD=YourPassword
-</pre>
-
-<hr>
-
-<h3>Run Login Setup</h3>
-
-<pre><code>npx playwright test tests/setup/login.setup.spec.js --project=setup --headed</code></pre>
-
-<h3>Run Full Test Suite</h3>
-
-<pre><code>npx playwright test --project=chromium --headed</code></pre>
-
-<h3>Open HTML Report</h3>
-
-<pre><code>npx playwright show-report</code></pre>
-
-<hr>
-
-<h2>🚀 CI/CD Readiness</h2>
-
-<ul>
-  <li>Headless CLI execution</li>
-  <li>Pipeline-ready automation</li>
-  <li>GitHub Actions compatibility</li>
-  <li>Version-controlled testing</li>
-</ul>
-
-<hr>
-
-<h2>👤 Author</h2>
-
-<p>
-Jesus Ricardo Hernandez Campos<br>
-QA Automation Engineer<br>
-UI Automation | API Testing | Automation Strategy | CI/CD Awareness
-</p>
-
-<hr>
-
-<h2>🏆 Quality Engineering Philosophy</h2>
-
-<p>
-The primary objective is not only defect detection, but risk mitigation,
-business logic validation, and reliability assurance.
-</p>
+```text
+benefits-dashboard-ui-automation-playwright
+│
+├── pages
+│   └── benefits.page.js
+│
+├── tests
+│   ├── setup
+│   │   └── login.setup.spec.js
+│   │
+│   ├── employee.add.spec.js
+│   ├── employee.edit.spec.js
+│   ├── employee.delete.spec.js
+│   └── employee.calculations.spec.js
+│
+├── auth
+│   └── storageState.json
+│
+├── playwright.config.js
+├── package.json
+└── README.md
