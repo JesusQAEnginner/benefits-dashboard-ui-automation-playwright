@@ -208,10 +208,28 @@ benefits-dashboard-ui-automation-playwright
 ├── auth
 │   └── storageState.json
 │
+├── bug-reports
+│   ├── README.html
+│   └── BUG_TEMPLATE.md
+│
 ├── playwright.config.js
 ├── package.json
 └── README.md
 </pre>
+
+<hr>
+
+<h2>⚙️ Environment Setup (.env)</h2>
+
+<p>
+Create a <strong>.env</strong> file in the project root using the provided <strong>.env.example</strong> file as reference.
+</p>
+
+<pre><code>
+BASE_URL=https://wmxrwq14uc.execute-api.us-east-1.amazonaws.com/Prod/
+UI_USERNAME=your_username
+UI_PASSWORD=your_password
+</code></pre>
 
 <hr>
 
@@ -229,25 +247,15 @@ benefits-dashboard-ui-automation-playwright
 
 <h2>⚡ Quick Commands</h2>
 
-<p>If you want to quickly run the automation framework:</p>
-
-<h3>1️⃣ Install Dependencies</h3>
-
-<pre><code>npm install</code></pre>
-
-<h3>2️⃣ Install Browsers</h3>
-
-<pre><code>npx playwright install</code></pre>
-
-<h3>3️⃣ Run Login Setup</h3>
+<h3>Run Login Setup</h3>
 
 <pre><code>npx playwright test tests/setup/login.setup.spec.js --project=setup --headed</code></pre>
 
-<h3>4️⃣ Run All Tests</h3>
+<h3>Run All Tests</h3>
 
 <pre><code>npx playwright test --project=chromium --headed</code></pre>
 
-<h3>5️⃣ Open Test Report</h3>
+<h3>Open Test Report</h3>
 
 <pre><code>npx playwright show-report</code></pre>
 
@@ -274,7 +282,7 @@ benefits-dashboard-ui-automation-playwright
 During automation development several UI defects were observed in the demo application.
 </p>
 
-<h3>1️⃣ Employees table sometimes loads empty</h3>
+<h3>Employees table sometimes loads empty</h3>
 
 <ul>
 <li>The dashboard occasionally shows <strong>"No employees found"</strong>.</li>
@@ -286,10 +294,10 @@ During automation development several UI defects were observed in the demo appli
 <ul>
 <li>Framework detects the condition</li>
 <li>Tests skip execution safely</li>
-<li>Screenshot + UI state evidence stored in report</li>
+<li>Screenshot evidence stored in the report</li>
 </ul>
 
-<h3>2️⃣ Employee modal sometimes remains open</h3>
+<h3>Employee modal sometimes remains open</h3>
 
 <ul>
 <li>After creating an employee the modal may not close automatically.</li>
@@ -300,10 +308,6 @@ During automation development several UI defects were observed in the demo appli
 <ul>
 <li>Fallback modal close strategy implemented</li>
 </ul>
-
-<p>
-These behaviors are documented as <strong>application defects</strong>, not automation failures.
-</p>
 
 <hr>
 
