@@ -5,13 +5,13 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "test:setup:headed": "npx playwright test tests/setup/login.setup.spec.js --project=setup --headed",
-    "test:setup": "npx playwright test tests/setup/login.setup.spec.js --project=setup",
-    "test:ui:headed": "npx playwright test --project=chromium --headed",
-    "test:ui": "npx playwright test --project=chromium",
-    "test:smoke": "npx playwright test --project=chromium --grep \"@smoke\"",
-    "report": "npx playwright show-report"
-  },
+  "test:setup:headed": "playwright test tests/setup/login.setup.spec.js --project=setup --headed",
+  "test:setup": "playwright test tests/setup/login.setup.spec.js --project=setup",
+  "test:ui:headed": "playwright test --project=chromium --headed",
+  "test:ui": "playwright test --project=chromium",
+  "test:smoke": "playwright test --project=chromium --grep \"@smoke\"",
+  "report": "playwright show-report"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JesusQAEnginner/benefits-dashboard-ui-automation-playwright.git"
